@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--адаптивность страницы-->>
+    <title>Биография Кевина Леврона</title>
+    <link href="D:\Рабочий стол\универ\3 семестр\Основы веб технологий\лаб1\style.css" rel="stylesheet">
+    
+    <!-- добавление шрифта Inclusive Sans из google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+        .centerImage {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 25%; 
+         }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#biography">Биография</a></li>
+                <li><a href="#achievements">Достижения</a></li>
+                <li><a href="login.html">Вход</a></li> 
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+
+            <figure>
+                <img class="centerImage" src="леврон.png" alt="Your Image">
+                <figcaption>Кевин Леврон 2002 год</figcaption>
+              </figure>
+
+        <section id="biography">
+            <h2>Биография</h2>
+            <p>Кевин Леврон (Kevin Levrone) - американский профессиональный бодибилдер и актер, родился 16 июля 1964
+                года в Мэриленде, США. Он известен своей выдающейся карьерой в мире бодибилдинга и является одним из
+                наиболее уважаемых и узнаваемых фигур в этой области. Вот краткая биография Кевина Леврона:
+                Карьера в бодибилдинге: Кевин Леврон начал свою карьеру в бодибилдинге в конце 1980-х годов. Он быстро
+                завоевал популярность благодаря своей уникальной физической подготовке, атлетичной фигуре и выдающимся
+                мышечным формам.
+                Титулы и достижения: Леврон выиграл множество престижных титулов, включая пятикратного победителя
+                турнира Arnold Classic и многократного участника и призера соревнований Mr. Olympia, одного из самых
+                престижных бодибилдинговых соревнований в мире.
+                Уникальный стиль: Кевин Леврон славится своим уникальным стилем выступления, включая эффектные
+                сценические постановки и внушительные выступления на сцене.
+                Завершение карьеры: Несмотря на многочисленные травмы и перерывы в карьере, Леврон продолжал
+                соревноваться на высоком уровне и завершил свою профессиональную карьеру в 2003 году.
+                Актерская карьера: После завершения карьеры бодибилдера, Кевин Леврон также занялся актерской
+                деятельностью и снялся в нескольких фильмах.
+                Кевин Леврон остается легендой в мире бодибилдинга и признанным иконой этой спортивной дисциплины. Его
+                преданность, талант и вклад в мир бодибилдинга остаются вдохновением для многих фанатов и атлетов.
+            </p>
+        </section>
+        
+    
+        <section id="achievements">
+            <h2>Достижения</h2>
+            <table>
+                <tr> 
+                    <th>Год</th>
+                    <th>Соревнование</th>
+                    <th>Место</th>
+                </tr>
+                <tr>
+                    <td>1992</td>
+                    <td>Гран При Германии</td>
+                    <td>Победа</td>
+                </tr>
+                <tr>
+                    <td>1997</td>
+                    <td>Арнольд Классик</td>
+                    <td>Восьмое место</td>
+                </tr>
+                <tr>
+                    <td>2003</td>
+                    <td>Мистер Олимпия</td>
+                    <td>Шестое место</td>
+                </tr>
+                <tr>
+                    <td>2003</td>
+                    <td>Шоу Сила Про</td>
+                    <td>Третье место</td>
+                </tr>
+                <!-- можно добавить еще достижения -->
+            </table>
+        </section>
+
+            <div class="feedback-form">
+                <h2>Форма обратной связи</h2>
+                <form action="home.php" method="post" enctype="multipart/form-data"> <!--атрибут action-->
+                    <div class="form-group">
+                        <label for="fullName">ФИО:</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Откуда узнали о нас:</label>
+                        <label><input type="radio" name="source" value="radio"> Радио</label>
+                        <label><input type="radio" name="source" value="tv"> Телевизор</label>
+                        <label><input type="radio" name="source" value="internet"> Интернет</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedbackType">Тип обращения:</label>
+                        <select id="feedbackType" name="feedbackType">
+                            <option value="complaint">Жалоба</option>
+                            <option value="suggestion">Предложение</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Текст сообщения:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="attachments">Вложения:</label>
+                        <input type="file" id="attachments" name="attachments">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="consent" required>
+                            Даю согласие на обработку персональных данных
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Отправить</button>
+                    </div>
+                </form>
+            </div>
+
+
+    </main>
+
+    <footer>
+        <p>Контактная информация: aliomarov.t@yandex.ru</p>
+        <p>©GrandPrix England 1999 год </p>
+    </footer>
+</body>
+
+</html>
