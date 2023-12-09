@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header h3 {
+    margin: 0; /* Избавляемся от отступов у заголовков */
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.container {
+    text-align: center;
+}
+
+.contact-form {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 20px auto;
+    width: 300px;
+}
+
+.form-field {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+main {
+    margin-top: 80px; /* чтобы контент не наезжал на шапку */
+}
+
