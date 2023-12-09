@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Lab</title>
+    <style>
+        .result-box {
+            border: 2px solid #333;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Возведение в степень: <span id="powResultSpan"></span></h1>
+    <div class="result-box" id="powResultBox">
+        <input type="number" id="powBase" placeholder="Основание">
+        <input type= "number" id="powExponent" placeholder="Показатель степени">
+        <button onclick="updatePowResult()">Вычислить</button>
+    </div>
+
+    <h1>Нахождение НОД: <span id="gcdResultSpan"></span></h1>
+    <div class="result-box" id="gcdResultBox">
+        <input type="number" id="gcdA" placeholder="Число A">
+        <input type="number" id="gcdB" placeholder="Число B">
+        <button onclick="updateGCDResult()">Вычислить</button>
+    </div>
+
+    <h1>Наименьшая цифра: <span id="minDigitResultSpan"></span></h1>
+    <div class="result-box" id="minDigitResultBox">
+        <input type="number" id="minDigitInput" placeholder="Введите число">
+        <button onclick="updateMinDigitResult()">Вычислить</button>
+    </div>
+
+    <h1>Pluralization: <span id="pluralizeResultSpan"></span></h1>
+    <div class="result-box" id="pluralizeResultBox">
+        <input type="number" id="pluralizeInput" placeholder="Количество записей">
+        <button onclick="updatePluralizeResult()">Вычислить</button>
+    </div>
+
+    <h1>Числа Фибоначчи: <span id="fibbResultSpan"></span></h1>
+    <div class="result-box" id="fibbResultBox">
+        <input type="number" id="fibbInput" placeholder="n (не больше 1000)">
+        <button onclick="updateFibbResult()">Вычислить</button>
+    </div>
+
+    <script>
+        // Функция для отображения результатов операций
+        function displayResult(id, funcName, args, result) {
+            const span = document.getElementById(id);
+            span.textContent = `${funcName}(${args.join(', ')}) = ${result}`;
+        }
+
+        // Обновление результата операции "Возведение в степень"
+        function updatePowResult() {
+            const base = parseFloat(document.getElementById("powBase").value);
+            const exponent = parseFloat(document.getElementById("powExponent").value);
+            const result = pow(base, exponent);
+            displayResult("powResultSpan", "pow", [base, exponent], result);
+        }
+
+        // Обновление результата операции "Нахождение НОД"
+        function updateGCDResult() {
+            const a = parseInt(document.getElementById("gcdA").value);
+            const b = parseInt(document.getElementById("gcdB").value);
+            const result = gcd(a, b);
+            displayResult("gcdResultSpan", "gcd", [a, b], result);
+        }
+
+        // Обновление результата операции "Наименьшая цифра"
+        function updateMinDigitResult() {
+            const x = parseInt(document.getElementById("minDigitInput").value);
+            const result = minDigit(x);
+            displayResult("minDigitResultSpan", "minDigit", [x], result);
+        }
+
+        // Обновление результата операции "Pluralization"
+        function updatePluralizeResult() {
+            const n = parseInt(document.getElementById("pluralizeInput").value);
+            const result = pluralizeRecords(n);
+            displayResult("pluralizeResultSpan", "pluralizeRecords", [n], result);
+        }
+
+        // Обновление результата операции "Числа Фибоначчи"
+        function updateFibbResult() {
+            const n = parseInt(document.getElementById("fibbInput").value);
+            const result = fibb(n);
+            displayResult("fibbResultSpan", "fibb", [n], result);
+        }
+
+        // Операция "Возведение в степень"
+        function pow(x, n) {
+            if (n === 0) return 1;
+            let result = x;
+            for (let i = 1; i < n; i++) {
+                result *= x;
+            }
+            return result;
+        }
+
+        // Операция "Нахождение НОД"
+        function gcd(a, b) {
+            while (b) {
+                let temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+
+        // Операция "Наименьшая цифра"
+        function minDigit(x) {
+            if (x < 0) {
+                return "Ошибка: число должно быть неотрицательным.";
+            }
+            const digitArray = Array.from(x.toString()).map(Number);
+            return Math.min(...digitArray);
+        }
+
+        // Операция "Pluralization"
+            function pluralizeRecords(n) {
+        if (n < 0){
+            return "Некорректное значение";
+        }
+        let pluralForm = "";
+        if (n % 10 === 1 && n % 100 !== 11) {
+            pluralForm = "запись";
+            x = "была найдена";
+        } else if ((n % 10 >= 2 && n % 10 <= 4) && (n % 100 < 12 || n % 100 > 14)) {
+            pluralForm = "записи";
+            x = "были найдены";
+        } else if(n % 10 === 0 || (n % 10 >= 5 && n % 10 <= 9) || (n % 100 >= 11 && n % 100 <= 14)){
+            pluralForm = "записей";
+            x = "было найдено";
+        } 
+        return `В результате выполнения запроса ${x} ${n} ${pluralForm}`;
+    }
+
+        // Операция "Числа Фибоначчи"
+        function fibb(n) {
+            if (n < 0 || n > 1000) {
+                return "Ошибка: n должно быть неотрицательным и не больше 1000.";
+            }
+            if (n === 0) return 0;
+            if (n === 1) return 1;
+            let a = 0;
+            let b = 1;
+            for (let i = 2; i <= n; i++) {
+                let temp = a + b;
+                a = b;
+                b = temp;
+            }
+            return b;
+        }
+    </script>
+
+</body>
+</html>
