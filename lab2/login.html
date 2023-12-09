@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма аутентификации</title>
+    <style>
+        
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Фоновое изображение */
+            background-image: url("file:///D:/Рабочий стол/универ/3 семестр/Основы веб технологий/лаб1/Фон для аутентификации.png");
+            background-size: cover; /* Растягивает фон на всю область */
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Стили для формы аутентификации */
+        .auth-form {
+            background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон для лучшей читаемости текста */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .auth-form h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .auth-form div {
+            margin: 10px 0;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        /* Стили для полей ввода */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box; /* Включаем box-sizing для включения ширины границы и заполнения в общую ширину элемента */
+        }
+
+        input[type="checkbox"] {
+            vertical-align: middle;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Увеличиваем ширину рамки с правой стороны */
+        .auth-form input[type="text"],
+        .auth-form input[type="password"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-form">
+        <h2>Форма аутентификации</h2>
+        <form action="process_login.php" method="POST"> <!--HTML-форма с определением метода передачи данных-->
+            <div>
+                <label for="login">Логин:</label>
+                <input type="text" id="login" name="login" required> <!--HTML текстовое поле-->
+            </div>
+            <div>
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <label for="remember">Запомнить меня:</label>
+                <input type="checkbox" id="remember" name="remember">
+            </div>
+            <div>
+                <button type="submit">Войти</button> <!--HTML кнопка-->
+                <!-- Добавляем кнопку "Назад" -->
+            <a href="index.html" style="text-decoration: none;">
+                <button type="button">Назад</button>
+            </a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
